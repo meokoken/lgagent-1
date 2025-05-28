@@ -40,7 +40,7 @@ async def call_model(state: State, config: RunnableConfig) -> Dict[str, Any]:
     """
     configuration = config["configurable"]
     return {
-        "changeme": "output from call_model. "
+        "changeme": f"{state.changeme} "
         f'Configured with {configuration.get("my_configurable_param")}'
     }
 
@@ -52,3 +52,4 @@ graph = (
     .add_edge("__start__", "call_model")
     .compile(name="New Graph")
 )
+
